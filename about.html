@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Stackly EV | About Us</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      background: #0a0f1a;
+      color: white;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    /* ========== EV ANIME BACKGROUND ========== */
+    .anime-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, #0a0f1a 0%, #1a2a3a 50%, #0f1a2a 100%);
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    /* Electric grid lines */
+    .anime-bg .grid {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: 
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0, 255, 255, 0.03) 40px, rgba(0, 255, 255, 0.06) 42px, transparent 45px),
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255, 0, 255, 0.03) 40px, rgba(255, 0, 255, 0.06) 42px, transparent 45px);
+      transform: rotate(30deg);
+      animation: gridMove 25s linear infinite;
+    }
+
+    /* Floating energy particles */
+    .anime-bg .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .anime-bg .particles span {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #00ffff;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #00ffff, 0 0 40px #ff00ff;
+      animation: floatParticle 15s linear infinite;
+      opacity: 0.5;
+    }
+
+    /* Electric arcs */
+    .anime-bg .arcs {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .anime-bg .arcs svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+    }
+
+    /* Floating orbs */
+    .anime-bg .orbs {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .anime-bg .orbs div {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      filter: blur(70px);
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+
+    .orbs div:nth-child(1) {
+      top: 10%;
+      left: 5%;
+      background: radial-gradient(circle, #ff3366 0%, transparent 80%);
+      opacity: 0.2;
+    }
+    .orbs div:nth-child(2) {
+      top: 60%;
+      right: 10%;
+      background: radial-gradient(circle, #3366ff 0%, transparent 80%);
+      opacity: 0.2;
+      animation-delay: -5s;
+    }
+    .orbs div:nth-child(3) {
+      bottom: 20%;
+      left: 20%;
+      background: radial-gradient(circle, #33ff99 0%, transparent 80%);
+      opacity: 0.2;
+      animation-delay: -10s;
+    }
+    .orbs div:nth-child(4) {
+      top: 30%;
+      right: 30%;
+      background: radial-gradient(circle, #ff9933 0%, transparent 80%);
+      opacity: 0.2;
+      animation-delay: -7s;
+    }
+    .orbs div:nth-child(5) {
+      top: 70%;
+      left: 40%;
+      background: radial-gradient(circle, #ff00ff 0%, transparent 80%);
+      opacity: 0.2;
+      animation-delay: -12s;
+    }
+    .orbs div:nth-child(6) {
+      bottom: 40%;
+      right: 20%;
+      background: radial-gradient(circle, #00ffff 0%, transparent 80%);
+      opacity: 0.2;
+      animation-delay: -15s;
+    }
+
+    /* Particle positions */
+    .particles span:nth-child(1) { left: 5%; animation-duration: 8s; }
+    .particles span:nth-child(2) { left: 15%; animation-duration: 12s; }
+    .particles span:nth-child(3) { left: 25%; animation-duration: 10s; }
+    .particles span:nth-child(4) { left: 35%; animation-duration: 14s; }
+    .particles span:nth-child(5) { left: 45%; animation-duration: 9s; }
+    .particles span:nth-child(6) { left: 55%; animation-duration: 13s; }
+    .particles span:nth-child(7) { left: 65%; animation-duration: 11s; }
+    .particles span:nth-child(8) { left: 75%; animation-duration: 15s; }
+    .particles span:nth-child(9) { left: 85%; animation-duration: 8.5s; }
+    .particles span:nth-child(10) { left: 95%; animation-duration: 12.5s; }
+    .particles span:nth-child(11) { left: 10%; animation-duration: 10.5s; }
+    .particles span:nth-child(12) { left: 20%; animation-duration: 13.5s; }
+    .particles span:nth-child(13) { left: 30%; animation-duration: 9.5s; }
+    .particles span:nth-child(14) { left: 40%; animation-duration: 11.5s; }
+    .particles span:nth-child(15) { left: 50%; animation-duration: 14.5s; }
+    .particles span:nth-child(16) { left: 60%; animation-duration: 8.2s; }
+    .particles span:nth-child(17) { left: 70%; animation-duration: 10.2s; }
+    .particles span:nth-child(18) { left: 80%; animation-duration: 12.2s; }
+    .particles span:nth-child(19) { left: 90%; animation-duration: 9.8s; }
+    .particles span:nth-child(20) { left: 98%; animation-duration: 11.8s; }
+
+    @keyframes gridMove {
+      0% { transform: rotate(30deg) translate(0, 0); }
+      100% { transform: rotate(30deg) translate(-50px, -50px); }
+    }
+
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(100vh) translateX(-30px) scale(1);
+        opacity: 0;
+      }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% {
+        transform: translateY(-20vh) translateX(30px) scale(0.3);
+        opacity: 0;
+      }
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+      33% { transform: translate(50px, -50px) scale(1.3); opacity: 0.3; }
+      66% { transform: translate(-40px, 40px) scale(0.8); opacity: 0.2; }
+    }
+
+    /* ========== NAVBAR ========== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      position: fixed;
+      width: 100%;
+      background: rgba(10, 20, 35, 0.9);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .logo a {
+      font-size: clamp(20px, 5vw, 28px);
+      font-weight: 700;
+      color: #00ffff;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: clamp(15px, 3vw, 32px);
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+      font-size: clamp(14px, 2vw, 16px);
+      white-space: nowrap;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background: linear-gradient(90deg, #00ffff, #ff00ff);
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    nav ul li a:hover {
+      color: #00ffff;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a.active {
+      color: #00ffff;
+    }
+
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    /* Dropdown menu */
+    .home-dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .dropdown-toggle i {
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(15, 30, 45, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      padding: 10px 0;
+      min-width: 140px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 1001;
+    }
+
+    .home-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 25px;
+      color: #e0f0ff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover {
+      background: linear-gradient(90deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+      color: #00ffff;
+      padding-left: 35px;
+    }
+
+    .dropdown-menu a::after {
+      display: none;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #00ffff;
+      z-index: 1001;
+    }
+
+    /* Mobile menu header */
+    .mobile-menu-header {
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .mobile-menu-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #00ffff;
+    }
+
+    .close-menu-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 0 0.5rem;
+      line-height: 1;
+      transition: opacity 0.3s;
+    }
+
+    .close-menu-btn:hover {
+      opacity: 0.7;
+    }
+
+    /* ========== PAGE HEADER ========== */
+    .page-header {
+      padding: 130px 5% 60px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0, 40, 60, 0.6), rgba(40, 10, 60, 0.6));
+      backdrop-filter: blur(4px);
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #00ffff, #ff00ff, #ffff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      animation: titleGlow 3s infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5)); }
+      100% { filter: drop-shadow(0 0 40px rgba(255, 0, 255, 0.5)); }
+    }
+
+    .page-header p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: #e0f0ff;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px 30px;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    /* ========== MISSION SECTION ========== */
+    .mission-section {
+      padding: 80px 5%;
+      background: rgba(10, 20, 35, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .mission-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .mission-content {
+      flex: 1 1 400px;
+    }
+
+    .mission-content h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mission-content p {
+      color: #d0e0ff;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .mission-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: 0.3s;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      border-color: #00ffff;
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+    }
+
+    .stat-item .number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #00ffff;
+    }
+
+    .stat-item .label {
+      font-size: 0.9rem;
+      color: #b0d0ff;
+    }
+
+    .mission-image {
+      flex: 1 1 400px;
+      position: relative;
+      height: 400px;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 2px solid rgba(0, 255, 255, 0.3);
+    }
+
+    .mission-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.6s;
+    }
+
+    .mission-image:hover img {
+      transform: scale(1.1);
+    }
+
+    .mission-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ========== STORY SECTION ========== */
+    .story-section {
+      padding: 80px 5%;
+      background: linear-gradient(135deg, rgba(20, 30, 50, 0.7), rgba(30, 20, 50, 0.7));
+      backdrop-filter: blur(4px);
+      border-top: 1px solid rgba(0, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 0, 255, 0.2);
+    }
+
+    .story-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .story-image {
+      flex: 1 1 400px;
+      position: relative;
+      height: 400px;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 0, 255, 0.3);
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.6s;
+    }
+
+    .story-image:hover img {
+      transform: scale(1.1);
+    }
+
+    .story-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .story-content {
+      flex: 1 1 400px;
+    }
+
+    .story-content h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #ff00ff, #ffff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .story-content p {
+      color: #d0e0ff;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .timeline {
+      margin-top: 40px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+      border-left: 3px solid #00ffff;
+    }
+
+    .timeline-year {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #00ffff;
+      min-width: 80px;
+    }
+
+    .timeline-desc {
+      color: #b0d0ff;
+    }
+
+    /* ========== VALUES SECTION ========== */
+    .values-section {
+      padding: 80px 5%;
+      background: rgba(15, 25, 40, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 50px;
+      color: white;
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .value-card {
+      background: rgba(20, 30, 50, 0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      padding: 40px 25px;
+      text-align: center;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ffff);
+      border-radius: 32px;
+      z-index: -1;
+      opacity: 0;
+      transition: 0.4s;
+      background-size: 300% 300%;
+    }
+
+    .value-card:hover {
+      transform: translateY(-15px);
+    }
+
+    .value-card:hover::before {
+      opacity: 0.5;
+      animation: borderRotate 3s linear infinite;
+    }
+
+    @keyframes borderRotate {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 25px;
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #00ffff;
+      border: 2px solid rgba(0, 255, 255, 0.3);
+      transition: 0.4s;
+    }
+
+    .value-card:hover .value-icon {
+      transform: rotateY(360deg);
+      border-color: #00ffff;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    }
+
+    .value-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .value-card p {
+      color: #b0d0ff;
+      line-height: 1.6;
+    }
+
+    /* ========== TEAM SECTION ========== */
+    .team-section {
+      padding: 80px 5%;
+      background: linear-gradient(135deg, rgba(30, 20, 40, 0.7), rgba(20, 30, 50, 0.7));
+      backdrop-filter: blur(4px);
+      border-top: 1px solid rgba(255, 0, 255, 0.2);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto 0;
+    }
+
+    .team-card {
+      background: rgba(20, 30, 45, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      padding: 30px 20px;
+      text-align: center;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: 0.4s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+      border-color: #00ffff;
+      box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+    }
+
+    .team-image {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #00ffff;
+      padding: 5px;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .team-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    .team-card .position {
+      color: #00ffff;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .team-card p {
+      color: #b0d0ff;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .team-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .team-social a {
+      width: 35px;
+      height: 35px;
+      background: rgba(0, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00ffff;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .team-social a:hover {
+      background: #00ffff;
+      color: #0a0f1a;
+      transform: translateY(-3px);
+    }
+
+    /* ========== LOCATION SECTION ========== */
+    .location-section {
+      padding: 80px 5%;
+      background: rgba(10, 20, 30, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .location-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 40px auto 0;
+    }
+
+    .location-info {
+      flex: 1 1 300px;
+    }
+
+    .location-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: #00ffff;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    .info-item i {
+      font-size: 2rem;
+      color: #00ffff;
+    }
+
+    .info-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    .info-item p {
+      color: #b0d0ff;
+      line-height: 1.6;
+    }
+
+    .location-map {
+      flex: 1 1 400px;
+      height: 400px;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 2px solid rgba(0, 255, 255, 0.3);
+    }
+
+    .location-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ========== FOOTER - UPDATED ALIGNMENT ========== */
+    footer {
+      background: #0a1420;
+      padding: 60px 5% 30px;
+      border-top: 3px solid rgba(0, 255, 255, 0.3);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto 40px;
+    }
+
+    .footer-col {
+      width: 100%;
+    }
+
+    .footer-col h4 {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      color: #00ffff;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .footer-col ul li a {
+      color: #b0d0ff;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 0.95rem;
+      display: inline-block;
+    }
+
+    .footer-col ul li a:hover {
+      color: #00ffff;
+      padding-left: 5px;
+    }
+
+    .footer-col p {
+      color: #b0d0ff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .footer-col i {
+      color: #00ffff;
+      width: 20px;
+      text-align: center;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: flex-start;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #00ffff;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .social-icons a i {
+      width: auto;
+      margin: 0;
+    }
+
+    .social-icons a:hover {
+      background: #00ffff;
+      color: #0a1420;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(0, 255, 255, 0.1);
+      color: #b0d0ff;
+    }
+
+    .footer-bottom i {
+      margin: 0 5px;
+    }
+
+    /* ========== RESPONSIVE MEDIA QUERIES ========== */
+    @media screen and (max-width: 992px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      
+      .mission-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+
+      nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        flex-direction: column;
+        background: rgba(10, 25, 40, 0.98);
+        backdrop-filter: blur(15px);
+        width: 280px;
+        height: 100vh;
+        padding: 0;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 0;
+        border-left: 2px solid #00ffff;
+        z-index: 1000;
+        margin: 0;
+        overflow-y: auto;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+      }
+
+      nav ul.active {
+        right: 0;
+      }
+
+      .mobile-menu-header {
+        display: flex;
+      }
+
+      nav ul li {
+        width: 100%;
+        opacity: 1;
+        transform: none;
+        margin: 0;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+      }
+
+      nav ul li a::after {
+        display: none;
+      }
+
+      nav ul li a:hover {
+        background: rgba(0, 255, 255, 0.1);
+        color: #00ffff;
+      }
+
+      .signup-btn {
+        margin: 15px 20px !important;
+        display: block !important;
+        text-align: center;
+      }
+
+      /* Mobile dropdown */
+      .home-dropdown {
+        position: static;
+      }
+
+      .dropdown-toggle {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .dropdown-toggle i {
+        transition: transform 0.3s;
+      }
+
+      .home-dropdown.active .dropdown-toggle i {
+        transform: rotate(180deg);
+      }
+
+      .dropdown-menu {
+        position: static;
+        background: rgba(0, 0, 0, 0.3);
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        box-shadow: none;
+        width: 100%;
+      }
+
+      .home-dropdown.active .dropdown-menu {
+        max-height: 200px;
+      }
+
+      .dropdown-menu a {
+        padding: 12px 20px 12px 35px;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+        font-size: 0.95rem;
+      }
+
+      .dropdown-menu a:hover {
+        background: rgba(0, 255, 255, 0.15);
+        padding-left: 40px;
+      }
+
+      .mission-container,
+      .story-container,
+      .location-container {
+        flex-direction: column;
+      }
+
+      .mission-image,
+      .story-image {
+        width: 100%;
+        height: 300px;
+      }
+
+      .mission-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      /* Footer mobile alignment */
+      .footer-col h4 {
+        text-align: left;
+      }
+
+      .footer-col p {
+        justify-content: flex-start;
+      }
+
+      .footer-col ul li {
+        text-align: left;
+      }
+
+      .social-icons {
+        justify-content: flex-start;
+      }
+    }
+
+    @media screen and (max-width: 580px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-col h4 {
+        text-align: left;
+        font-size: 1.2rem;
+      }
+
+      .footer-col p {
+        text-align: left;
+        justify-content: flex-start;
+      }
+
+      .footer-col ul li {
+        text-align: left;
+      }
+
+      .social-icons {
+        justify-content: flex-start;
+      }
+
+      .page-header h1 {
+        font-size: 2.5rem;
+      }
+
+      .timeline-item {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .timeline-year {
+        min-width: auto;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .mission-image,
+      .story-image {
+        height: 250px;
+      }
+
+      .stat-item .number {
+        font-size: 2rem;
+      }
+    }
+
+    /* Menu overlay */
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .menu-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      .value-card:hover,
+      .team-card:hover,
+      .stat-item:hover {
+        transform: none;
+      }
+      
+      .btn:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- EV ANIME BACKGROUND -->
+<div class="anime-bg">
+  <div class="grid"></div>
+  <div class="particles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="arcs">
+    <svg viewBox="0 0 1000 600" preserveAspectRatio="none">
+      <path d="M0,300 Q250,100 500,300 T1000,300" stroke="#00ffff" stroke-width="2" fill="none" stroke-dasharray="15 15" opacity="0.15"/>
+      <path d="M0,400 Q300,600 600,400 T1200,400" stroke="#ff00ff" stroke-width="2" fill="none" stroke-dasharray="20 20" opacity="0.15"/>
+      <path d="M-200,200 Q150,50 500,200 T1200,200" stroke="#ffff00" stroke-width="2" fill="none" stroke-dasharray="10 10" opacity="0.15"/>
+      <path d="M200,0 Q400,200 600,0 T1000,0" stroke="#ff3366" stroke-width="2" fill="none" stroke-dasharray="12 12" opacity="0.15"/>
+    </svg>
+  </div>
+  <div class="orbs">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<!-- HEADER with dropdown -->
+<header>
+  <div class="logo"><a href="index.html">Stackly EV</a></div>
+  <nav>
+    <ul id="menu">
+      <!-- Mobile menu header with close button -->
+      <div class="mobile-menu-header">
+        <span class="mobile-menu-title">Menu</span>
+        <button class="close-menu-btn" onclick="toggleMenu()">✕</button>
+      </div>
+      
+      <li class="home-dropdown" style="--i:1">
+        <a href="index.html" class="dropdown-toggle">Home <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="index.html">Home 1</a>
+          <a href="home2.html">Home 2</a>
+        </div>
+      </li>
+      <li style="--i:2"><a href="models.html">Models</a></li>
+      <li style="--i:3"><a href="technology.html">Technology</a></li>
+      <li style="--i:4"><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li style="--i:5"><a href="sign up.html" class="signup-btn">Sign Up <i class="fas fa-bolt"></i></a></li>
+    </ul>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </nav>
+</header>
+
+<style>
+  /* Sign Up Button Styles */
+  .signup-btn {
+    background: linear-gradient(135deg, #00ffff, #ff00ff);
+    color: #0a0f1a !important;
+    padding: 10px 25px !important;
+    border-radius: 50px;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.95rem !important;
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+    transition: all 0.3s ease !important;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  .signup-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: 0.5s;
+  }
+
+  .signup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.5);
+    border-color: white;
+  }
+
+  .signup-btn:hover::before {
+    left: 100%;
+  }
+
+  .signup-btn i {
+    margin-left: 8px;
+    font-size: 1rem;
+    animation: boltPulse 1.5s infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes boltPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+  }
+
+  /* Remove the default underline effect for signup button */
+  .signup-btn::after {
+    display: none !important;
+  }
+</style>
+
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <h1 data-aos="fade-down">ABOUT STACKLY EV</h1>
+  <p data-aos="fade-up" data-aos-delay="100">Driving the future of mobility with innovation, sustainability, and passion.</p>
+</section>
+
+<!-- MISSION SECTION -->
+<section class="mission-section">
+  <div class="mission-container">
+    <div class="mission-content" data-aos="fade-right">
+      <h2>Our Mission</h2>
+      <p>At Stackly EV, we're on a mission to accelerate the world's transition to sustainable electric mobility. We believe that transportation should be clean, efficient, and exciting without compromising the planet.</p>
+      <p>Founded in 2020, we've grown from a small team of EV enthusiasts to a global community of innovators, engineers, and drivers who share a common vision: a future where every journey is powered by clean energy.</p>
+      
+      <div class="mission-stats">
+        <div class="stat-item">
+          <div class="number">50K+</div>
+          <div class="label">Vehicles on Road</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">1.2B</div>
+          <div class="label">Clean KM Driven</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">98%</div>
+          <div class="label">Recyclable Materials</div>
+        </div>
+      </div>
+    </div>
+    <div class="mission-image" data-aos="fade-left">
+      <img src="EV FACTORY.webp" alt="EV Factory">
+    </div>
+  </div>
+</section>
+
+<!-- STORY SECTION -->
+<section class="story-section">
+  <div class="story-container">
+    <div class="story-image" data-aos="fade-right">
+      <img src="EV FACTORY.webp" alt="EV Story">
+    </div>
+    <div class="story-content" data-aos="fade-left">
+      <h2>Our Story</h2>
+      <p>What started as a small garage project in Salem has evolved into a movement. Our founder, a passionate engineer, envisioned electric vehicles that don't just replace petrol cars but redefine the driving experience entirely.</p>
+      <p>Today, we're proud to have a diverse team from around the world, all working towards a common goal: making electric mobility accessible, enjoyable, and sustainable for everyone.</p>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-desc">Stackly EV founded in Salem, Tamil Nadu</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-desc">First prototype unveiled - Volt Racer</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-desc">Production begins, first 1000 vehicles delivered</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-desc">Expanded to international markets</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-desc">Launched solid-state battery technology</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-desc">50,000 vehicles milestone reached</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES SECTION -->
+<section class="values-section">
+  <h2 class="section-title" data-aos="fade-up">Our <span>Core Values</span></h2>
+  <div class="values-grid">
+    <div class="value-card" data-aos="flip-left" data-aos-delay="100">
+      <div class="value-icon">
+        <i class="fas fa-leaf"></i>
+      </div>
+      <h3>Sustainability</h3>
+      <p>We're committed to reducing carbon footprint through every aspect of our business, from manufacturing to daily operations.</p>
+    </div>
+
+    <div class="value-card" data-aos="flip-left" data-aos-delay="200">
+      <div class="value-icon">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <h3>Innovation</h3>
+      <p>Pushing boundaries with cutting-edge technology, from solid-state batteries to AI-powered driving assistance.</p>
+    </div>
+
+    <div class="value-card" data-aos="flip-left" data-aos-delay="300">
+      <div class="value-icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <h3>Community</h3>
+      <p>Building a global community of EV enthusiasts who share knowledge, experiences, and a passion for clean mobility.</p>
+    </div>
+
+    <div class="value-card" data-aos="flip-left" data-aos-delay="400">
+      <div class="value-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <h3>Safety First</h3>
+      <p>Every vehicle undergoes rigorous testing to ensure the highest safety standards for you and your family.</p>
+    </div>
+
+    <div class="value-card" data-aos="flip-left" data-aos-delay="500">
+      <div class="value-icon">
+        <i class="fas fa-hand-holding-heart"></i>
+      </div>
+      <h3>Customer Focus</h3>
+      <p>Your satisfaction drives everything we do. We're here to support you at every step of your EV journey.</p>
+    </div>
+
+    <div class="value-card" data-aos="flip-left" data-aos-delay="600">
+      <div class="value-icon">
+        <i class="fas fa-globe-asia"></i>
+      </div>
+      <h3>Global Vision</h3>
+      <p>Thinking globally while acting locally, we aim to make sustainable mobility accessible worldwide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+  <h2 class="section-title" data-aos="fade-up">Meet Our <span>Leadership</span></h2>
+  <div class="team-grid">
+    <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+      <div class="team-image">
+        <img src="EV CHARGE.webp" alt="Founder">
+      </div>
+      <h3>Arjun Kumar</h3>
+      <div class="position">Founder & CEO</div>
+      <p>Former Tesla engineer with a vision to make EVs accessible in India. Led the development of solid-state battery technology.</p>
+      <div class="team-social">
+        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+        <a href="404.html"><i class="fab fa-twitter"></i></a>
+        <a href="404.html"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card" data-aos="zoom-in" data-aos-delay="200">
+      <div class="team-image">
+        <img src="EV concept.webp" alt="CTO">
+      </div>
+      <h3>Priya Sharma</h3>
+      <div class="position">Chief Technology Officer</div>
+      <p>PhD in Electrical Engineering, pioneer in EV battery technology with 15+ patents in solid-state batteries.</p>
+      <div class="team-social">
+        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+        <a href="404.html"><i class="fab fa-twitter"></i></a>
+        <a href="404.html"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="team-image">
+        <img src="family.webp" alt="Design Head">
+      </div>
+      <h3>Vikram Rajan</h3>
+      <div class="position">Head of Design</div>
+      <p>Award-winning automotive designer who has worked with leading European brands before joining Stackly.</p>
+      <div class="team-social">
+        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+        <a href="404.html"><i class="fab fa-behance"></i></a>
+        <a href="404.html"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card" data-aos="zoom-in" data-aos-delay="400">
+      <div class="team-image">
+        <img src="sporty ev.webp" alt="Operations">
+      </div>
+      <h3>Meera Nair</h3>
+      <div class="position">Operations Director</div>
+      <p>Supply chain expert with experience scaling manufacturing operations across Asia.</p>
+      <div class="team-social">
+        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+        <a href="404.html"><i class="fab fa-twitter"></i></a>
+        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION SECTION -->
+<section class="location-section">
+  <h2 class="section-title" data-aos="fade-up">Visit <span>Us</span></h2>
+  <div class="location-container">
+    <div class="location-info" data-aos="fade-right">
+      <h3>Our Headquarters</h3>
+      
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <h4>Address</h4>
+          <p>Stackly EV Headquarters<br>No. 42, EV Tech Park<br>Salem - 636001, Tamil Nadu<br>India</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-phone-alt"></i>
+        <div>
+          <h4>Phone</h4>
+          <p>+91 80565 *****<br>+91 427 234 ****</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <h4>Email</h4>
+          <p>hello@stackly.io<br>support@stackly.io</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-clock"></i>
+        <div>
+          <h4>Working Hours</h4>
+          <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="location-map" data-aos="fade-left">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.363377566725!2d78.15864731480085!3d11.664257191775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1f1f1f1f1f1%3A0x123456789abcdef!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Stackly EV</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Salem, Tamil Nadu</p>
+      <p><i class="fas fa-phone-alt"></i> +91 80565 *****</p>
+      <p><i class="fas fa-envelope"></i> hello@stackly.io</p>
+      <div class="social-icons">
+        <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="404.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="404.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="404.html" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="models.html">Models</a></li>
+        <li><a href="technology.html">Technology</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="auth.html">Sign Up</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="404.html">FAQ</a></li>
+        <li><a href="404.html">Contact Us</a></li>
+        <li><a href="404.html">Service Centers</a></li>
+        <li><a href="404.html">Charging Network</a></li>
+        <li><a href="404.html">Software Updates</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="404.html">Privacy Policy</a></li>
+        <li><a href="404.html">Terms of Service</a></li>
+        <li><a href="404.html">Cookie Policy</a></li>
+        <li><a href="404.html">Careers</a></li>
+        <li><a href="404.html">Press</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <i class="fas fa-bolt"></i> 2025 Stackly EV · All rights reserved · Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> in Salem · <i class="fas fa-leaf"></i> zero‑emission
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Initialize AOS
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+
+  // Mobile menu toggle
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+    
+    // Create or toggle overlay
+    let overlay = document.querySelector('.menu-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'menu-overlay';
+      overlay.onclick = toggleMenu;
+      document.body.appendChild(overlay);
+    }
+    
+    if (menu.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => overlay.classList.add('active'), 10);
+    } else {
+      document.body.style.overflow = 'auto';
+      overlay.classList.remove('active');
+    }
+  }
+
+  // Close menu when clicking on a link (except dropdown toggle)
+  document.querySelectorAll('#menu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        // Don't close if it's the dropdown toggle
+        if (link.classList.contains('dropdown-toggle')) {
+          e.preventDefault();
+          const homeDropdown = document.querySelector('.home-dropdown');
+          homeDropdown.classList.toggle('active');
+          return;
+        }
+        
+        const menu = document.getElementById('menu');
+        menu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        const overlay = document.querySelector('.menu-overlay');
+        if (overlay) overlay.classList.remove('active');
+      }
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('menu');
+    const menuBtn = document.querySelector('.menu-btn');
+    
+    if (window.innerWidth <= 768) {
+      if (!menu.contains(e.target) && !menuBtn.contains(e.target) && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        const overlay = document.querySelector('.menu-overlay');
+        if (overlay) overlay.classList.remove('active');
+      }
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    const menu = document.getElementById('menu');
+    if (window.innerWidth > 768) {
+      menu.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      
+      const overlay = document.querySelector('.menu-overlay');
+      if (overlay) overlay.classList.remove('active');
+    }
+  });
+</script>
+</body>
+</html>
